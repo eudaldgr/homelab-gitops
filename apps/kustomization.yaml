@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - sealed-secrets.yaml
   - kured-app.yaml
-  - longhorn-app.yaml
+  - longhorn.yaml
