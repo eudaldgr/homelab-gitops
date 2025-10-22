@@ -36,5 +36,7 @@ longhornUI:
       operator: "Equal"
       value: "longhorn"
       effect: "NoSchedule"
+
+frontend:
   service:
     type: LoadBalancer
