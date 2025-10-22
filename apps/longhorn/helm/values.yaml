@@ -17,11 +17,23 @@ persistence:
 longhornManager:
   nodeSelector:
     node-role.kubernetes.io/storage: "true"
+  tolerations:
+    - key: storage
+      value: longhorn
+      effect: NoSchedule
 
 longhornDriver:
   nodeSelector:
     node-role.kubernetes.io/storage: "true"
+  tolerations:
+    - key: storage
+      value: longhorn
+      effect: NoSchedule
 
 longhornUI:
   nodeSelector:
     node-role.kubernetes.io/storage: "true"
+  tolerations:
+    - key: storage
+      value: longhorn
+      effect: NoSchedule
