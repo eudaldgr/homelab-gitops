@@ -6,34 +6,33 @@ global:
     node-role.kubernetes.io/storage: "true"
 
 defaultSettings:
+  systemManagedComponentsNodeSelector: "node-role.kubernetes.io/storage:true"
   defaultDataPath: /var/lib/longhorn
   defaultReplicaCount: "2"
-  systemManagedComponentsNodeSelector: "node-role.kubernetes.io/storage:true"
-
-persistence:
-  defaultClass: true
-  defaultClassReplicaCount: "2"
 
 longhornManager:
   nodeSelector:
     node-role.kubernetes.io/storage: "true"
   tolerations:
-    - key: storage
-      value: longhorn
-      effect: NoSchedule
+    - key: "storage"
+      operator: "Equal"
+      value: "longhorn"
+      effect: "NoSchedule"
 
 longhornDriver:
   nodeSelector:
     node-role.kubernetes.io/storage: "true"
   tolerations:
-    - key: storage
-      value: longhorn
-      effect: NoSchedule
+    - key: "storage"
+      operator: "Equal"
+      value: "longhorn"
+      effect: "NoSchedule"
 
 longhornUI:
   nodeSelector:
     node-role.kubernetes.io/storage: "true"
   tolerations:
-    - key: storage
-      value: longhorn
-      effect: NoSchedule
+    - key: "storage"
+      operator: "Equal"
+      value: "longhorn"
+      effect: "NoSchedule"
