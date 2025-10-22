@@ -1,0 +1,30 @@
+global:
+  domain: argocd.cornfakes.xyz
+
+configs:
+  params:
+    server.insecure: true
+
+server:
+  ingress:
+    enabled: false
+  service:
+    type: LoadBalancer
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+
+controller:
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+
+repoServer:
+  podLabels:
+    app.kubernetes.io/instance: argocd
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
