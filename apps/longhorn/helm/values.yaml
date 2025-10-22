@@ -37,6 +37,6 @@ longhornUI:
       value: "longhorn"
       effect: "NoSchedule"
 
-frontend:
-  service:
+service:
+  ui:
     type: LoadBalancer
