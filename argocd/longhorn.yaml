@@ -6,16 +6,16 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://charts.longhorn.io
-      chart: longhorn
-      targetRevision: 1.10.0
+    - chart: longhorn
+      repoURL: https://charts.longhorn.io/
+      targetRevision: v1.10.0
+      helm:
+        values: |
+          preUpgradeChecker:
+            jobEnabled: false
   destination:
     server: https://kubernetes.default.svc
     namespace: longhorn-system
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-      allowEmpty: false
     syncOptions:
       - CreateNamespace=true
