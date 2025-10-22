@@ -10,12 +10,17 @@ spec:
       repoURL: https://charts.longhorn.io/
       targetRevision: v1.10.0
       helm:
-        values: |
-          preUpgradeChecker:
-            jobEnabled: false
+        valueFiles:
+        - $values/apps/longhorn/helm/values.yaml
+    - repoURL: https://github.com/eudaldgr/homelab-gitops.git
+      targetRevision: main
+      ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: longhorn-system
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true

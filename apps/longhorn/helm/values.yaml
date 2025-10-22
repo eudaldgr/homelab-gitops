@@ -1,0 +1,27 @@
+preUpgradeChecker:
+  jobEnabled: false
+
+global:
+  nodeSelector:
+    node-role.kubernetes.io/storage: "true"
+
+defaultSettings:
+  defaultDataPath: /var/lib/longhorn
+  defaultReplicaCount: "2"
+  systemManagedComponentsNodeSelector: "node-role.kubernetes.io/storage:true"
+
+persistence:
+  defaultClass: true
+  defaultClassReplicaCount: "2"
+
+longhornManager:
+  nodeSelector:
+    node-role.kubernetes.io/storage: "true"
+
+longhornDriver:
+  nodeSelector:
+    node-role.kubernetes.io/storage: "true"
+
+longhornUI:
+  nodeSelector:
+    node-role.kubernetes.io/storage: "true"
