@@ -10,7 +10,9 @@ spec:
   source:
     repoURL: https://github.com/eudaldgr/homelab-gitops.git
     targetRevision: main
-    path: apps
+    path: argocd
+    directory:
+      recurse: false
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
