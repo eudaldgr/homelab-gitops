@@ -29,6 +29,9 @@ spec:
   - repoURL: https://github.com/eudaldgr/homelab-gitops.git
     targetRevision: main
     ref: values
+  - repoURL: https://github.com/eudaldgr/homelab-gitops.git
+    targetRevision: main
+    path: apps/metallb-system/k8s-manifests
   syncPolicy:
     automated:
       prune: true

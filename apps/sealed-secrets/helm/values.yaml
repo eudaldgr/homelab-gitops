@@ -1,4 +1,0 @@
-ingress:
-  enabled: false
-
-keyrenewperiod: "720h30m"
