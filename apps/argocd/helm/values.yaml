@@ -30,6 +30,8 @@ controller:
       enabled: true
 
 repoServer:
+  podLabels:
+    app.kubernetes.io/instance: argocd
   metrics:
     enabled: true
     serviceMonitor:
