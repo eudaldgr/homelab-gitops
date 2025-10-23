@@ -2,18 +2,12 @@
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
-  annotations:
-    sealedsecrets.bitnami.com/cluster-wide: "true"
-  creationTimestamp: null
   name: cloudflare
   namespace: traefik
 spec:
   encryptedData:
-    api-token: AgBnxUArnGNQy3MWTbNMH1xebyU7hJogY0ifrem514wMB1Ntk2ogDtKnPRZ+xnq1jV92CEy+xlWhZNA6N17ujtx4z9S9gTGfavGD7oYSAXykkTBeBurfAly9xMlTM5AZ1jCds+0u45ZZ+l8g9q/cxrCoiTISum29vpxPDgL32X97i15sreRNr9+75B9I0xWpoFC9gRLAZa90dV17DQYXqFAs/ExR/T/lsaAN3n4vGZEbYYlpvbq2D/cfsbb+Nh/CpC47bUpygbvNlauWVf/vg6CeocTfKNGZP6sfrW1MP6mj2uLXBcW1GVwiq90WMTmJarba0Ai3hZfPJmCv8/xGW7haoYXCmon0mR+tq68PFrbyp8pu2IOS6j6lXDH40HM3h6mRGSbVvw+8xyj7LET237+AzCNCuCJNapjYhJ7ok7eJKhObF7S3Xn1cHHB+16lG3+Y3O+SMx9tDxYesJ8dOvNEGL5QXsiK7fI4gM1fSYmt7hUdbktShDc+5yzkDRZc/xyw+2SVVKcIY7eLeis0rXhnVanLqZbd42kz/7hYU9L7BWLvX1g2LaHlJjAJNPEk+zj2RzQpdk7sUw9W5qhbVqgaYC1tmuYjzz8w1nxwxYJ/pMaXiD+7zmibEog2clfZKcfY+g9MD9SaVaCIyY4zNmfViEq6aYMrcXdSuTuJq1vt/3DWSKP7+7Yb/XLevxzawsbcmEU3nCzZObtwu6ZSRj8nvxsT42CHcE3s2O/Dzndfnlm8QxHTKV4lw
+    api-token: AgCxOg1zMj5klYZlg242mT4ajuB8lj8ZOvTjYVMXhkg6wqE4jziiiX/3Bo4XXR1YC84htfIqZDlhp1Jt7/Men92dNJhwu9jjVoOj/4fIfFFnsbM3bhrp9frD2H5koWa4L53GmL+k1P/DUqPj+Om0ZJpQdtqg1YjgrpL8RhKynXUUXbFIvrCOEyZMrdRZKPDKqXcQLTLuTTRrjBQoqmx2Kp/k7i8aWvCGWej0rZYSXBQ6HLkYZm4hx3R9EPIXzfk6xFV1jwJ4QsT3Q8lpQKtv+XWkvfY0L3M1q3juwIwctdKazCx1vN77Kg6d9016TtQ8l/QbqQAen0tJEmj/xUk5wZpAZbNdurv3Cago8YZGNc35ZGMsCaODloUeN23Gm5BXciFHGwtLeCOnnOw7kzofM2jQ4HUcHPfINISdNves1tDhNNbF2e8fP2DBA5p8tnUkVktqWMYKCVIZweYypOKs4KlrF2JKjgP1pVWiktBioyrXSVPdbQZaEfV84uL+WIEVDYLyo2yEKOUJIWVcZ7vvnY2z/cIrr8zXnLFia6MLRTYskSro3+EWTHlkBpa2XxABI3u4YKQpxL2WCW63nF6Wu8bIzUuc5WZFJ3/dzdSS1G6tV2Y3ONGbgsOtv3yvQ1vO0LtuCMVy2wstwVUyKxh84eQHYsymL63xA4uVdrwJIBu9Q/jlMKqDGdTJYZrYuPW6+5qtMVl6aqdKJhiPQGEdfrTqr9vqLhYqIW35p59eSEpaIJSy62XC5prM
   template:
     metadata:
-      annotations:
-        sealedsecrets.bitnami.com/cluster-wide: "true"
-      creationTimestamp: null
       name: cloudflare
       namespace: traefik
