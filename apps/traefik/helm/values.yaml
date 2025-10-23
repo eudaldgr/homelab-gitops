@@ -9,6 +9,8 @@ globalArguments:
 - "--global.checknewversion"
 - "--global.sendanonymoususage=false"
 - "--serversTransport.insecureSkipVerify=true"
+- "--api.dashboard=true"
+- "--api.insecure=true"
 
 tlsStore:
   default:
