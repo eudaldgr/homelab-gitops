@@ -9,6 +9,7 @@ csi:
 global:
   nodeSelector:
     node-role.kubernetes.io/storage: "true"
+  domain: longhorn.cornfakes.xyz
 
 defaultSettings:
   systemManagedComponentsNodeSelector: "node-role.kubernetes.io/storage:true"
@@ -43,7 +44,7 @@ longhornUI:
       value: "longhorn"
       effect: "NoSchedule"
 
-service:
+server:
   ingress:
     enabled: true
     controller: generic
