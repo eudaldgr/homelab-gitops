@@ -44,5 +44,14 @@ longhornUI:
       effect: "NoSchedule"
 
 service:
-  ui:
-    type: LoadBalancer
+  ingress:
+    enabled: true
+    controller: generic
+    labels: {}
+    annotations:
+      traefik.ingress.kubernetes.io/router.middlewares: traefik-redirect@kubernetescrd
+    ingressClassName: traefik
+    hostname: "longhorn.cornfakes.xyz"
+    path: /
+    pathType: Prefix
+    tls: false
