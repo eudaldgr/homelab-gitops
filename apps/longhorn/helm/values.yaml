@@ -1,4 +1,15 @@
-installCRDs: true
+global:
+  tolerations:
+    - key: "storage"
+      operator: "Equal"
+      value: "longhorn"
+      effect: "NoSchedule"
+  nodeSelector:
+    node-role.kubernetes.io/storage: "true"
+
+service:
+  ui:
+    type: LoadBalancer
 
 preUpgradeChecker:
   jobEnabled: false
@@ -6,20 +17,10 @@ preUpgradeChecker:
 csi:
   kubeletRootDir: /var/lib/kubelet
 
-global:
-  nodeSelector:
-    node-role.kubernetes.io/storage: "true"
-  tolerations:
-    - key: "storage"
-      operator: "Equal"
-      value: "longhorn"
-      effect: "NoSchedule"
-
 defaultSettings:
-  systemManagedComponentsNodeSelector: "node-role.kubernetes.io/storage:true"
-  taintToleration: "storage=longhorn:NoSchedule"
   defaultDataPath: /var/lib/longhorn
-  defaultReplicaCount: "2"
+  taintToleration: "storage=longhorn:NoSchedule"
+  systemManagedComponentsNodeSelector: "node-role.kubernetes.io/storage:true"
 
 ingress:
   enabled: true
