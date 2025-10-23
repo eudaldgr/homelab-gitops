@@ -9,7 +9,6 @@ csi:
 global:
   nodeSelector:
     node-role.kubernetes.io/storage: "true"
-  domain: longhorn.cornfakes.xyz
 
 defaultSettings:
   systemManagedComponentsNodeSelector: "node-role.kubernetes.io/storage:true"
@@ -44,15 +43,9 @@ longhornUI:
       value: "longhorn"
       effect: "NoSchedule"
 
-server:
-  ingress:
-    enabled: true
-    controller: generic
-    labels: {}
-    annotations:
-      traefik.ingress.kubernetes.io/router.middlewares: traefik-redirect@kubernetescrd
-    ingressClassName: traefik
-    hostname: "longhorn.cornfakes.xyz"
-    path: /
-    pathType: Prefix
-    tls: false
+ingress:
+  enabled: true
+  ingressClassName: traefik
+  host: longhorn.cornfakes.xyz
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-redirect@kubernetescrd
