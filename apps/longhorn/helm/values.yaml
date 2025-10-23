@@ -1,6 +1,9 @@
 preUpgradeChecker:
   jobEnabled: false
 
+csi:
+  kubeletRootDir: /var/lib/kubelet
+
 global:
   nodeSelector:
     node-role.kubernetes.io/storage: "true"
