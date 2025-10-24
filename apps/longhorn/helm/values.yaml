@@ -1,3 +1,10 @@
+service:
+  ui:
+    type: LoadBalancer
+
+preUpgradeChecker:
+  jobEnabled: false
+
 ingress:
   enabled: true
   ingressClassName: traefik
