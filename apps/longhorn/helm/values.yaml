@@ -1,3 +1,24 @@
+longhornManager:
+  nodeSelector: {}
+  tolerations:
+  - key: "storage"
+    operator: "Equal"
+    value: "longhorn"
+    effect: "NoSchedule"
+
+longhornDriver:
+  nodeSelector: {}
+  tolerations: []
+
+longhornUI:
+  nodeSelector:
+    node-role.kubernetes.io/storage: "true"
+  tolerations:
+  - key: "storage"
+    operator: "Equal"
+    value: "longhorn"
+    effect: "NoSchedule"
+
 csi:
   kubeletRootDir: /var/lib/kubelet
   attacherReplicaCount: 3
