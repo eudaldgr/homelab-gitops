@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: longhorn-csi-plugin
+  namespace: longhorn-system
+spec:
+  template:
+    spec:
+      nodeSelector: {}
+      tolerations:
+      - key: storage
+        operator: Equal
+        value: longhorn
+        effect: NoSchedule
