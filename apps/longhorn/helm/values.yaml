@@ -6,6 +6,9 @@ global:
     value: "longhorn"
     effect: "NoSchedule"
 
+csi:
+  kubeletRootDir: /var/lib/kubelet
+
 service:
   ui:
     type: LoadBalancer
