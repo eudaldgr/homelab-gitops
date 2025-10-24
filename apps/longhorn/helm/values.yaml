@@ -1,5 +1,6 @@
 global:
-  nodeSelector: {}
+  nodeSelector:
+    node-role.kubernetes.io/storage: "true"
   tolerations:
   - key: "storage"
     operator: "Equal"
