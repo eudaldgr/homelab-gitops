@@ -1,4 +1,22 @@
-global:
+longhornManager:
+  tolerations:
+    - key: "storage"
+      operator: "Equal"
+      value: "longhorn"
+      effect: "NoSchedule"
+  nodeSelector:
+    node-role.kubernetes.io/storage: "true"
+
+longhornDriver:
+  tolerations:
+    - key: "storage"
+      operator: "Equal"
+      value: "longhorn"
+      effect: "NoSchedule"
+  nodeSelector:
+    node-role.kubernetes.io/storage: "true"
+
+longhornUI:
   tolerations:
     - key: "storage"
       operator: "Equal"
@@ -13,18 +31,6 @@ csi:
   provisionerReplicaCount: 3
   resizerReplicaCount: 3
   snapshotterReplicaCount: 3
-
-longhornManager:
-  tolerations: []
-  nodeSelector: {}
-
-longhornDriver:
-  tolerations: []
-  nodeSelector: {}
-
-longhornUI:
-  tolerations: []
-  nodeSelector: {}
 
 service:
   ui:
