@@ -36,9 +36,8 @@ preUpgradeChecker:
 defaultSettings:
   defaultDataPath: /var/lib/longhorn
   taintToleration: "storage=longhorn:NoSchedule"
-  systemManagedComponentsNodeSelector:
-    node-role.kubernetes.io/storage: "true"
-  createDefaultDiskLabeledNodesOnly: true
+  systemManagedComponentsNodeSelector: "node-role.kubernetes.io/storage:true"
+  createDefaultDiskLabeledNodes: true
 
 ingress:
   enabled: true
