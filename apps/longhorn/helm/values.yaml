@@ -1,3 +1,11 @@
+global:
+  nodeSelector: {}
+  tolerations:
+  - key: "storage"
+    operator: "Equal"
+    value: "longhorn"
+    effect: "NoSchedule"
+
 service:
   ui:
     type: LoadBalancer
