@@ -18,6 +18,15 @@ prometheus:
         memory: 2Gi
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
+    nodeSelector:
+      node-role.kubernetes.io/worker: "true"
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/storage
+              operator: DoesNotExist
 
 alertmanager:
   enabled: true
@@ -36,6 +45,15 @@ alertmanager:
         memory: 128Mi
       limits:
         memory: 256Mi
+    nodeSelector:
+      node-role.kubernetes.io/worker: "true"
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/storage
+              operator: DoesNotExist
 
 grafana:
   enabled: true
@@ -50,6 +68,15 @@ grafana:
       memory: 256Mi
     limits:
       memory: 512Mi
+  nodeSelector:
+    node-role.kubernetes.io/worker: "true"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: node-role.kubernetes.io/storage
+            operator: DoesNotExist
   ingress:
     enabled: true
     ingressClassName: traefik
