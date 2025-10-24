@@ -22,11 +22,9 @@ service:
 ports:
   web:
     port: 8080
-    hostPort: 8080
     containerPort: 8080
   websecure:
     port: 8443
-    hostPort: 8443
     containerPort: 8443
 
 providers:
