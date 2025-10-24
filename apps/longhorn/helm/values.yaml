@@ -5,6 +5,10 @@ service:
 preUpgradeChecker:
   jobEnabled: false
 
+defaultSettings:
+  taintToleration: "storage=longhorn:NoSchedule"
+  createDefaultDiskLabeledNodes: true
+
 ingress:
   enabled: true
   ingressClassName: traefik
