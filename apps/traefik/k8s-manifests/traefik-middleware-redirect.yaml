@@ -6,5 +6,4 @@ metadata:
 spec:
   redirectScheme:
     scheme: https
-    port: "8443"
     permanent: true
