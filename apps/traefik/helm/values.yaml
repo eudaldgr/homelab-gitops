@@ -9,8 +9,6 @@ globalArguments:
 - "--global.checknewversion"
 - "--global.sendanonymoususage=false"
 - "--serversTransport.insecureSkipVerify=true"
-- "--api.dashboard=true"
-- "--api.insecure=true"
 
 tlsStore:
   default:
@@ -23,13 +21,13 @@ service:
 
 ports:
   web:
-    port: 80
-    hostPort: 80
-    containerPort: 80
+    port: 8080
+    hostPort: 8080
+    containerPort: 8080
   websecure:
-    port: 443
-    hostPort: 443
-    containerPort: 443
+    port: 8443
+    hostPort: 8443
+    containerPort: 8443
 
 providers:
   kubernetesCRD:
