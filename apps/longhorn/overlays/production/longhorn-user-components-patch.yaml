@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: longhorn-driver-deployer
+  namespace: longhorn-system
+spec:
+  template:
+    spec:
+      nodeSelector:
+        node.longhorn.io/create-default-disk: "true"
+      tolerations:
+      - key: "node"
+        operator: "Equal"
+        value: "storage"
+        effect: "NoSchedule"
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: longhorn-manager
+  namespace: longhorn-system
+spec:
+  template:
+    spec:
+      nodeSelector:
+        node.longhorn.io/create-default-disk: "true"
+      tolerations:
+      - key: "node"
+        operator: "Equal"
+        value: "storage"
+        effect: "NoSchedule"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: longhorn-ui
+  namespace: longhorn-system
+spec:
+  template:
+    spec:
+      nodeSelector:
+        node.longhorn.io/create-default-disk: "true"
+      tolerations:
+      - key: "node"
+        operator: "Equal"
+        value: "storage"
+        effect: "NoSchedule"
