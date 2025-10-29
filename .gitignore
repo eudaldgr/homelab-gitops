@@ -1,0 +1,26 @@
+# Secrets (NO cometre mai secrets sense encriptar!)
+*.key
+*.pem
+*.crt
+secrets/
+*-secret.yaml
+!sealed-secret.yaml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+._*
+
+# Temporal
+tmp/
+temp/
+*.tmp
+
+# Kubeseal outputs temporals
+*.unsealed.yaml
