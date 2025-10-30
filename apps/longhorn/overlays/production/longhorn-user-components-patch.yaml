@@ -36,8 +36,6 @@ metadata:
 spec:
   template:
     spec:
-      nodeSelector:
-        node.longhorn.io/create-default-disk: "true"
       tolerations:
       - key: "node"
         operator: "Equal"
