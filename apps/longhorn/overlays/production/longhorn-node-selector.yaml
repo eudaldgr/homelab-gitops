@@ -5,3 +5,5 @@ metadata:
   namespace: longhorn-system
 data:
   taint-toleration: "node=storage:NoSchedule"
+  create-default-disk-labeled-nodes: "true"
+  default-node-selector: "node.longhorn.io/create-default-disk=true"
