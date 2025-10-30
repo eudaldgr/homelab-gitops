@@ -1,4 +1,6 @@
 prometheus:
+  service:
+    type: LoadBalancer
   ingress:
     enabled: true
     ingressClassName: traefik
@@ -41,6 +43,8 @@ prometheus:
 
 alertmanager:
   enabled: true
+  service:
+    type: LoadBalancer
   ingress:
     enabled: true
     ingressClassName: traefik
@@ -76,6 +80,8 @@ alertmanager:
 
 grafana:
   enabled: true
+  service:
+    type: LoadBalancer
   admin:
     existingSecret: grafana-admin-credentials
     userKey: admin-user
