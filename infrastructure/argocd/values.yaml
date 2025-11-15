@@ -17,8 +17,8 @@ argo-cd:
     #   annotations:
     #     cert-manager.io/cluster-issuer: letsencrypt-prod
     #   tls: true
-    loadBalancer:
-      enabled: true
+    service:
+      type: LoadBalancer
     metrics: &metrics
       enabled: true
       serviceMonitor:
