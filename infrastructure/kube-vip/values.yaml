@@ -9,9 +9,6 @@ kube-vip:
     lb_enable: "true"
     svc_enable: "false"
 
-  extraArgs:
-    manager: ""
-
   hostAliases:
     - ip: "127.0.0.1"
       hostnames:
