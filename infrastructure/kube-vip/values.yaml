@@ -31,3 +31,6 @@ kube-vip:
   volumeMounts:
     - mountPath: /etc/kubernetes/admin.conf
       name: kubeconfig
+
+  nodeSelector:
+    node-role.kubernetes.io/control-plane: ""
