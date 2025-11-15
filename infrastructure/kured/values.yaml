@@ -4,3 +4,10 @@ kured:
     rebootCommand: /usr/bin/systemctl reboot
     preRebootNodeLabels: [kured=rebooting]
     postRebootNodeLabels: [kured=done]
+  tolerations: [
+    {
+      key: "node-role.kubernetes.io/storage",
+      operator: "Exists",
+      effect: "NoSchedule"
+    }
+  ]
