@@ -4,6 +4,8 @@ argo-cd:
       enabled: false
       serviceMonitor:
         enabled: false
+    service:
+      type: LoadBalancer
   controller:
     metrics: *metrics
   repoServer:
