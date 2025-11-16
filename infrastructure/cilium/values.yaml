@@ -4,8 +4,6 @@ cilium:
   kubeProxyReplacement: true
   l2announcements:
     enabled: true
-  k8sServiceHost: 127.0.0.1
-  k8sServicePort: 6444
   hubble:
     relay:
       enabled: true
