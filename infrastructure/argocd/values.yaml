@@ -10,6 +10,14 @@ argo-cd:
       resource.customizations.ignoreResourceUpdates.all: |
         jsonPointers:
           - /status
+      kustomize.buildOptions: '--enable-helm'
+    cmp:
+      create: true
+      plugins:
+        kustomize-build-with-helm:
+          generate:
+            command: [sh, -c]
+            args: [kustomize build --enable-helm]
   server:
     # ingress:
     #   enabled: false
