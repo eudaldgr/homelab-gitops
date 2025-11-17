@@ -6,9 +6,6 @@ global:
       effect: "NoSchedule"
     }
   ]
-  nodeSelector: {
-    "node-role.kubernetes.io/storage": "true"
-  }
 
 csi:
   attacherReplicaCount: 2
@@ -98,11 +95,6 @@ service:
 
 longhornManager:
   priorityClass: system-cluster-critical
-  tolerations:
-    - key: "node-role.kubernetes.io/storage"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
   resources:
     requests:
       cpu: 250m
