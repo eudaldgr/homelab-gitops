@@ -1,0 +1,14 @@
+global:
+  tolerations: [
+    {
+      key: "node-role.kubernetes.io/storage",
+      operator: "NoSchedule",
+      effect: "NoSchedule"
+    }
+  ]
+  nodeSelector: {
+    "node-role.kubernetes.io/storage": "true"
+  }
+service:
+  ui:
+    type: LoadBalancer
