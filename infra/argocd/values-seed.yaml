@@ -17,6 +17,8 @@ argo-cd:
     service:
       type: LoadBalancer
   controller:
+    clusterAdminAccess:
+      enabled: true
     metrics: *metrics
   repoServer:
     metrics: *metrics
