@@ -55,7 +55,7 @@ defaultSettings:
   guaranteedReplicaManagerCPU: 0.2
   storageOverProvisioningPercentage: "200"
   storageMinimalAvailablePercentage: "10"
-  taintToleration: 'storage=true:NoSchedule'
+  taintToleration: 'node-role.kubernetes.io/storage=true:NoSchedule'
   defaultDataPath: /var/lib/longhorn/
   autoDeletePodWhenVolumeDetachedUnexpectedly: true
   autoSalvage: true
@@ -87,7 +87,7 @@ service:
 longhornManager:
   priorityClass: system-cluster-critical
   tolerations:
-    - key: "storage"
+    - key: "node-role.kubernetes.io/storage"
       operator: "Equal"
       value: "true"
       effect: "NoSchedule"
