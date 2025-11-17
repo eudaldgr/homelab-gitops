@@ -1,11 +1,10 @@
 global:
-  tolerations: [
-    {
-      key: "node-role.kubernetes.io/storage",
-      operator: "Exists",
+  tolerations:
+    - key: "node-role.kubernetes.io/storage"
+      operator: "Exists"
       effect: "NoSchedule"
-    }
-  ]
+  nodeSelector:
+    "node-role.kubernetes.io/storage": "true"
 
 csi:
   attacherReplicaCount: 2
