@@ -22,17 +22,17 @@ argo-cd:
     metrics: *metrics
   redis:
     metrics: *metrics
-argocd-apps:
-  applicationsets:
-    root:
-      generators:
-        - git:
-            repoURL: &repoURL https://github.com/eudaldgr/homelab-gitops
-            revision: &revision main
-            directories:
-              - path: infra/*
-      template:
-        spec:
-          source:
-            repoURL: *repoURL
-            targetRevision: *revision
+# argocd-apps:
+#   applicationsets:
+#     root:
+#       generators:
+#         - git:
+#             repoURL: &repoURL https://github.com/eudaldgr/homelab-gitops
+#             revision: &revision main
+#             directories:
+#               - path: infra/*
+#       template:
+#         spec:
+#           source:
+#             repoURL: *repoURL
+#             targetRevision: *revision
