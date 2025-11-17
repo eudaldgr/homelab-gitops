@@ -3,8 +3,6 @@ global:
     - key: "node-role.kubernetes.io/storage"
       operator: "Exists"
       effect: "NoSchedule"
-  nodeSelector:
-    "node-role.kubernetes.io/storage": "true"
 
 csi:
   attacherReplicaCount: 2
@@ -13,6 +11,10 @@ csi:
   snapshotterReplicaCount: 2
   kubeletRootDir: /var/lib/kubelet
   plugin:
+    tolerations:
+      - key: "node-role.kubernetes.io/storage"
+        operator: "Exists"
+        effect: "NoSchedule"
     nodeSelector:
       "node-role.kubernetes.io/storage": "true"
     resources:
@@ -23,6 +25,10 @@ csi:
         cpu: 100m
         memory: 128Mi
   provisioner:
+    tolerations:
+      - key: "node-role.kubernetes.io/storage"
+        operator: "Exists"
+        effect: "NoSchedule"
     nodeSelector:
       "node-role.kubernetes.io/storage": "true"
     resources:
@@ -33,6 +39,10 @@ csi:
         cpu: 55m
         memory: 68Mi
   attacher:
+    tolerations:
+      - key: "node-role.kubernetes.io/storage"
+        operator: "Exists"
+        effect: "NoSchedule"
     nodeSelector:
       "node-role.kubernetes.io/storage": "true"
     resources:
@@ -43,6 +53,10 @@ csi:
         cpu: 50m
         memory: 64Mi
   resizer:
+    tolerations:
+      - key: "node-role.kubernetes.io/storage"
+        operator: "Exists"
+        effect: "NoSchedule"
     nodeSelector:
       "node-role.kubernetes.io/storage": "true"
     resources:
@@ -53,6 +67,10 @@ csi:
         cpu: 45m
         memory: 60Mi
   snapshotter:
+    tolerations:
+      - key: "node-role.kubernetes.io/storage"
+        operator: "Exists"
+        effect: "NoSchedule"
     nodeSelector:
       "node-role.kubernetes.io/storage": "true"
     resources:
