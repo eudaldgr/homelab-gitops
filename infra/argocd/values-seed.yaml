@@ -30,7 +30,7 @@ argocd-apps:
             repoURL: &repoURL https://github.com/eudaldgr/homelab-gitops
             revision: &revision main
             directories:
-              - path: infrastructure/*
+              - path: infra/*
       template:
         spec:
           source:
