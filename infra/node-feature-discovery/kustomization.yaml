@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - namespace.yaml
-  - https://raw.githubusercontent.com/intel/intel-device-plugins-for-kubernetes/main/deployments/nfd/overlays/node-feature-rules/node-feature-rules.yaml
 
 helmCharts:
   - name: node-feature-discovery
@@ -18,3 +17,14 @@ helmCharts:
           core:
             sleepInterval: 60s
             featureSources: ["cpu","pci","usb","gpu","system"]
+      extraRules:
+        - name: intel-igpu-rule
+          labels:
+            intel.feature.node.kubernetes.io/gpu: "true"
+          matchFeatures:
+            - feature: pci.device
+              matchExpressions:
+                # Match Intel Corporation vendor ID
+                vendor: {op: In, value: ["8086"]}
+                # Match VGA compatible controller (0300) or 3D controller (9BC8)
+                class: {op: In, value: ["0300", "9BC8"]}
