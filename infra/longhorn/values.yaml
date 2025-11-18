@@ -50,10 +50,9 @@ csi:
       limits:
         cpu: 60m
         memory: 70Mi
-# defaultBackupStore:
-#   backupTarget: 's3://longhorn@us-west-1/'
-#   backupTargetCredentialSecret: longhorn-minio-credentials
-#   pollInterval: 180
+defaultBackupStore:
+  backupTarget: 'nfs://10.1.30.50:/volume2/k8s/homelab-k3s/prod/longhorn/backups'
+  pollInterval: 180
 defaultSettings:
   createDefaultDiskLabeledNodes: true
   defaultReplicaCount: "2"
