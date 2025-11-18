@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: selinux-intelgpudevice
+  namespace: inteldeviceplugins-system
+spec:
+  selector:
+    matchLabels:
+      app: selinux-intelgpudevice
+  template:
+    metadata:
+      labels:
+        app: selinux-intelgpudevice
+    spec:
+      hostPID: true
+      containers:
+        - name: installer
+          image: registry.opensuse.org/opensuse/tumbleweed
+          securityContext:
+            privileged: true
+            seLinuxOptions:
+              type: spc_t
+          command: ["/bin/sh","-c"]
+          args:
+            - |
+              zypper -n in -y policycoreutils || true
+              semodule -n -i /policy/intelgpudevice.cil || true
+              sleep 3600
+          volumeMounts:
+            - name: policy
+              mountPath: /policy
+              readOnly: true
+            - name: etc-selinux
+              mountPath: /etc/selinux
+      volumes:
+        - name: policy
+          configMap:
+            name: selinux-intelgpudevice-policy
+        - name: etc-selinux
+          hostPath:
+            path: /etc/selinux

@@ -3,6 +3,11 @@ kind: Kustomization
 
 resources:
   - namespace.yaml
+  - selinux-intelgpudevice-cm.yaml
+  - selinux-intelgpudevice-ds.yaml
+
+patchesStrategicMerge:
+  - patch-intel-gpu-plugin-selinux.yaml
 
 helmCharts:
   - name: intel-device-plugins-operator
