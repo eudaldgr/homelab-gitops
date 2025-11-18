@@ -6,9 +6,6 @@ resources:
   - selinux-intelgpudevice-cm.yaml
   - selinux-intelgpudevice-ds.yaml
 
-patchesStrategicMerge:
-  - patch-intel-gpu-plugin-selinux.yaml
-
 helmCharts:
   - name: intel-device-plugins-operator
     repo: https://intel.github.io/helm-charts/
