@@ -51,7 +51,7 @@ csi:
         cpu: 60m
         memory: 70Mi
 defaultBackupStore:
-  backupTarget: 'nfs://10.1.30.50:/volume2/k8s/homelab-k3s/prod/longhorn/backups'
+  backupTarget: 'nfs://10.1.30.50:/volume2/k8s/homelab/prod/longhorn/backups'
   pollInterval: 180
 defaultSettings:
   createDefaultDiskLabeledNodes: true
