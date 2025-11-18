@@ -3,8 +3,6 @@ global:
     - key: "node-role.kubernetes.io/storage"
       operator: "Exists"
       effect: "NoSchedule"
-  nodeSelector:
-    "node-role.kubernetes.io/storage": "true"
 
 csi:
   attacherReplicaCount: 2
@@ -110,7 +108,6 @@ preUpgradeChecker:
 
 longhornUI:
   replicas: 3
-  nodeSelector: {}
 
 metrics:
   serviceMonitor:
