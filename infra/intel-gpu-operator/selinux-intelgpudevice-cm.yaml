@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: selinux-intelgpudevice-policy
-  namespace: inteldeviceplugins-system
-data:
-  intelgpudevice.cil: |
-    (allow container_device_plugin_t container_runtime_t (unix_stream_socket (connectto)))
