@@ -23,7 +23,6 @@ spec:
   task: "snapshot-cleanup"
   groups:
     - default
-    - group1
   concurrency: 2
   labels:
     type: maintenance

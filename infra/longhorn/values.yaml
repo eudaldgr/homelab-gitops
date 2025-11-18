@@ -54,6 +54,7 @@ defaultBackupStore:
   backupTarget: 'nfs://10.1.30.50:/volume2/k8s/homelab/prod/longhorn/backups'
   pollInterval: 180
 defaultSettings:
+  allowCollectingLonghornUsageMetrics: false
   createDefaultDiskLabeledNodes: true
   defaultReplicaCount: "2"
   guaranteedEngineManagerCPU: 0.2
