@@ -13,6 +13,10 @@ helmCharts:
     includeCRDs: true
     namespace: node-feature-discovery
     valuesInline:
+      master:
+        extraLabelNs:
+          - intel.feature.node.kubernetes.io
+          - gpu.intel.com
       worker:
         config:
           core:
