@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cert-cornfakes
+  namespace: gateway
+spec:
+  secretName: cert-cornfakes
+  issuerRef:
+    name: cloudflare-issuer-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - "cornfakes.xyz"
+    - "*.cornfakes.xyz"

@@ -14,15 +14,3 @@ helmCharts:
     releaseName: nfd
     includeCRDs: true
     namespace: node-feature-discovery
-    # valuesInline:
-    #   master:
-    #     extraLabelNs:
-    #       - intel.feature.node.kubernetes.io
-    #       - gpu.intel.com
-    #     extraArgs:
-    #       - --feature-gates=NodeFeatureAPI=true
-    #   worker:
-    #     config:
-    #       core:
-    #         sleepInterval: 60s
-    #         featureSources: ["cpu","pci","usb","system","kernel"]
