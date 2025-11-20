@@ -53,18 +53,6 @@ spec:
           mountPath: /opt/adguardhome/work/
         - name: adguard-config
           mountPath: /opt/adguardhome/conf/
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 30
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 10
-          periodSeconds: 5
   volumeClaimTemplates:
   - metadata:
       name: adguard-data
