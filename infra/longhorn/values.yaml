@@ -69,7 +69,7 @@ defaultSettings:
   concurrentReplicaRebuildPerNodeLimit: "1"
   replicaReplenishmentWaitInterval: "600"
   backupstorePollInterval: 300
-  replicaSoftAntiAffinity: false
+  replicaSoftAntiAffinity: true
 persistence:
   defaultClass: true
   defaultClassReplicaCount: 2
