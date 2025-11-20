@@ -41,14 +41,35 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: adguard-web
+  name: adguard-home-0
   namespace: adguard
   annotations:
     io.cilium/lb-ipam-ips: "10.1.20.150"
 spec:
   type: LoadBalancer
   selector:
-    app: adguard-home
+    statefulset.kubernetes.io/pod-name: adguard-home-0
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+    name: http
+  - port: 3000
+    targetPort: 3000
+    protocol: TCP
+    name: http-initial
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: adguard-home-1
+  namespace: adguard
+  annotations:
+    io.cilium/lb-ipam-ips: "10.1.20.151"
+spec:
+  type: LoadBalancer
+  selector:
+    statefulset.kubernetes.io/pod-name: adguard-home-1
   ports:
   - port: 80
     targetPort: 80

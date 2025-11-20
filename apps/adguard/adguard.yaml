@@ -5,7 +5,7 @@ metadata:
   namespace: adguard
 spec:
   serviceName: "adguard-headless"
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: adguard-home
@@ -24,6 +24,16 @@ spec:
         operator: "Exists"
         effect: "NoExecute"
         tolerationSeconds: 30
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - adguard-home
+            topologyKey: "kubernetes.io/hostname"
       containers:
       - name: adguard-home
         image: adguard/adguardhome:v0.107.69@sha256:8a4107ec812023842ccab9e04600c5d39d3be6b15e907c34a36339c184c8fccf
@@ -43,14 +53,6 @@ spec:
           mountPath: /opt/adguardhome/work/
         - name: adguard-config
           mountPath: /opt/adguardhome/conf/
-        readinessProbe:
-          tcpSocket:
-            port: 53
-          periodSeconds: 5
-        livenessProbe:
-          tcpSocket:
-            port: 53
-          periodSeconds: 10
   volumeClaimTemplates:
   - metadata:
       name: adguard-data
