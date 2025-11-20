@@ -8,7 +8,7 @@ spec:
     - name: internal
       namespace: gateway
   hostnames:
-    - "hubble.cornfakes.xyz"
+    - "hubble.home.canmugrons.xyz"
   rules:
     - matches:
         - path:
