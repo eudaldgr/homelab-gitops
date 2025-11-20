@@ -9,4 +9,3 @@ resources:
 - namespace.yaml
 - gw-external.yaml
 - certificates.yaml
-- redirect.yaml

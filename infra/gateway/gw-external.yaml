@@ -7,22 +7,8 @@ spec:
   gatewayClassName: cilium
   infrastructure:
     annotations:
-      io.cilium/lb-ipam-ips: 10.1.20.111
+      io.cilium/lb-ipam-ips: 10.1.20.100
   listeners:
-    - protocol: HTTP
-      port: 80
-      name: http-gateway
-      hostname: "*.cornfakes.xyz"
-      allowedRoutes:
-        namespaces:
-          from: All
-    - protocol: HTTP
-      port: 80
-      name: http-domain-gateway
-      hostname: cornfakes.xyz
-      allowedRoutes:
-        namespaces:
-          from: All
     - protocol: HTTPS
       port: 443
       name: https-gateway
