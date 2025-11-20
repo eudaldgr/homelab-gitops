@@ -12,22 +12,22 @@ spec:
     - protocol: HTTPS
       port: 443
       name: https-gateway
-      hostname: "*.cornfakes.xyz"
+      hostname: "*.home.canmugrons.xyz"
       tls:
         certificateRefs:
           - kind: Secret
-            name: cert-cornfakes
+            name: cert-canmugrons
       allowedRoutes:
         namespaces:
           from: All
     - protocol: HTTPS
       port: 443
       name: https-domain-gateway
-      hostname: cornfakes.xyz
+      hostname: home.canmugrons.xyz
       tls:
         certificateRefs:
           - kind: Secret
-            name: cert-cornfakes
+            name: cert-canmugrons
     - protocol: TCP
       port: 29811
       name: omada-mgr-v1
