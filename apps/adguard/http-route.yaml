@@ -1,0 +1,15 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: adguard-web
+  namespace: adguard
+spec:
+  parentRefs:
+  - name: internal
+    namespace: gateway
+  hostnames:
+  - "adguard.home.canmugrons.xyz"
+  rules:
+  - backendRefs:
+    - name: adguard-web
+      port: 80
