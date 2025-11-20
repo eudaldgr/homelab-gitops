@@ -77,7 +77,7 @@ persistence:
   reclaimPolicy: Retain
   defaultFsType: ext4
   snapshotMaxCount: 60
-  defaultDataLocality: best-effort
+  defaultDataLocality: disabled
 
 resources:
   requests:
