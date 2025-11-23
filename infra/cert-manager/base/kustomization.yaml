@@ -5,9 +5,3 @@ namespace: cert-manager
 
 resources:
 - namespace.yaml
-
-helmCharts:
-- name: cert-manager
-  includeCRDs: true
-  releaseName: cert-manager
-  version: v1.19.1

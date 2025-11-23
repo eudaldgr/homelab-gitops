@@ -1,8 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: argocd
+
 resources:
 - ../../base
 - http-route.yaml
 
-valuesFile: values.yaml
+helmCharts:
+- name: argocd
+  includeCRDs: true
+  releaseName: argocd
+  version: 9.1.0
+  valuesFile: values.yaml

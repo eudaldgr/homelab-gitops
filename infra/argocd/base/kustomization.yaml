@@ -5,9 +5,3 @@ namespace: argocd
 
 resources:
 - namespace.yaml
-
-helmCharts:
-- name: argocd
-  includeCRDs: true
-  releaseName: argocd
-  version: 9.1.0

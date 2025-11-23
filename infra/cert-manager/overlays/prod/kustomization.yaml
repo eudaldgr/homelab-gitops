@@ -5,4 +5,9 @@ resources:
 - ../../base
 - clusterissuer.yaml
 
-valuesFile: values.yaml
+helmCharts:
+- name: cert-manager
+  includeCRDs: true
+  releaseName: cert-manager
+  version: v1.19.1
+  valuesFile: values.yaml
