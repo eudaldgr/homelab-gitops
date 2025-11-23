@@ -1,0 +1,34 @@
+global:
+  domain: argocd.cornfakes.xyz
+configs:
+  params:
+    server.insecure: true
+    controller.diff.server.side: true
+  cm:
+    resource.ignoreResourceUpdatesEnabled: true
+    resource.customizations.ignoreResourceUpdates.all: |
+      jsonPointers:
+        - /status
+    kustomize.buildOptions: '--enable-helm'
+  cmp:
+    create: true
+    plugins:
+      kustomize-build-with-helm:
+        generate:
+          command: [sh, -c]
+          args: [kustomize build --enable-helm]
+server:
+  service:
+    type: LoadBalancer
+  metrics: &metrics
+    enabled: true
+    serviceMonitor:
+      enabled: true
+dex:
+  enabled: false
+controller:
+  metrics: *metrics
+repoServer:
+  metrics: *metrics
+redis:
+  metrics: *metrics

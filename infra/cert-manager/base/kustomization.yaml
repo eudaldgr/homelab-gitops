@@ -1,9 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
+namespace: cert-manager
+
+resources:
+- namespace.yaml
+
 helmCharts:
-- name: ./chart
+- name: cert-manager
   includeCRDs: true
-  valuesFile: values.yaml
   releaseName: cert-manager
-  namespace: cert-manager
-  version: 0.0.0
+  version: v1.19.1
