@@ -12,3 +12,8 @@ helmCharts:
     releaseName: longhorn
     namespace: longhorn-system
     valuesFile: values.yaml
+
+patches:
+- patch: |-
+    - op: remove
+      path: /spec/ports/0/nodePort

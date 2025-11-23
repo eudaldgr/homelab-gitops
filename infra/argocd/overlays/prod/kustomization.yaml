@@ -8,8 +8,10 @@ resources:
 - http-route.yaml
 
 helmCharts:
-- name: argocd
-  includeCRDs: true
-  releaseName: argocd
+- name: argo-cd
+  repo: https://argoproj.github.io/argo-helm
   version: 9.1.0
+  releaseName: argocd
+  namespace: argocd
+  includeCRDs: true
   valuesFile: values.yaml
