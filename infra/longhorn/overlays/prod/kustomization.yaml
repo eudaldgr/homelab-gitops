@@ -3,3 +3,12 @@ kind: Kustomization
 
 resources:
 - ../../base
+- recurringjob.yaml
+
+helmCharts:
+  - name: longhorn
+    repo: https://charts.longhorn.io
+    version: 1.10.1
+    releaseName: longhorn
+    namespace: longhorn-system
+    valuesFile: values.yaml

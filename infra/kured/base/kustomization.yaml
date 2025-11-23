@@ -1,9 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-helmCharts:
-- name: ./chart
-  includeCRDs: true
-  valuesFile: values.yaml
-  releaseName: kured
-  namespace: kube-system
-  version: 0.0.0
