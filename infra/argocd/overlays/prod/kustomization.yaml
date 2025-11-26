@@ -6,6 +6,8 @@ namespace: argocd
 resources:
 - ../../base
 - http-route.yaml
+- http-route-api.yaml
+- argocd-redis-network-policy.yaml
 
 helmCharts:
 - name: argo-cd
