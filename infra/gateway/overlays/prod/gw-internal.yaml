@@ -64,7 +64,6 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
-
     # Add UDP listeners for Omada discovery
     - protocol: UDP
       port: 29810

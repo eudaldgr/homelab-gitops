@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - ../../base
 - clusterissuer.yaml
+- internal-ca-issuer.yaml
 
 helmCharts:
 - name: cert-manager

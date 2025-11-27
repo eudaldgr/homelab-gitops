@@ -5,4 +5,5 @@ resources:
 - ../../base
 - gw-external.yaml
 - gw-internal.yaml
-- certificates.yaml
+- cert-cornfakes.yaml
+- cert-canmugrons.yaml
