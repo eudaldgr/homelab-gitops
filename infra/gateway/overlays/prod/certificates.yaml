@@ -25,3 +25,5 @@ spec:
   dnsNames:
     - "canmugrons.xyz"
     - "*.canmugrons.xyz"
+    - "home.canmugrons.xyz"
+    - "*.home.canmugrons.xyz"
