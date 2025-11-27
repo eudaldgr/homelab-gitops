@@ -23,5 +23,5 @@ spec:
     name: cloudflare-issuer-prod
     kind: ClusterIssuer
   dnsNames:
-    - "home.canmugrons.xyz"
-    - "*.home.canmugrons.xyz"
+    - "canmugrons.xyz"
+    - "*.canmugrons.xyz"
