@@ -15,6 +15,10 @@ cgroup:
 bpf:
   hostLegacyRouting: true
 
+# BGP control plane
+bgpControlPlane:
+  enabled: true
+
 # https://docs.cilium.io/en/stable/network/concepts/ipam/
 # ipam:
 #   mode: kubernetes

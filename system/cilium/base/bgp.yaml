@@ -4,16 +4,16 @@ metadata:
   name: custom-policy
 spec:
   virtualRouters:
-  - exportPodCIDR: false
-    localASN: 65512
-    neighbors:
-    - connectRetryTimeSeconds: 120
-      eBGPMultihopTTL: 1
-      holdTimeSeconds: 90
-      keepAliveTimeSeconds: 30
-      peerASN: 65510
-      peerAddress: 10.1.20.1/32
-      peerPort: 179
-    serviceSelector:
-     matchExpressions:
-       - {key: somekey, operator: NotIn, values: ['never-used-value']}
+    - exportPodCIDR: true
+      localASN: 65512
+      neighbors:
+        - connectRetryTimeSeconds: 120
+          eBGPMultihopTTL: 1
+          holdTimeSeconds: 90
+          keepAliveTimeSeconds: 30
+          peerASN: 65510
+          peerAddress: 10.1.20.1/32
+          peerPort: 179
+      serviceSelector:
+        matchExpressions:
+          - { key: somekey, operator: NotIn, values: ["never-used-value"] }
