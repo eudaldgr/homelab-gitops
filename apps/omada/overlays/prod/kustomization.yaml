@@ -4,9 +4,9 @@ kind: Kustomization
 namespace: omada
 
 resources:
+  - ../../base
   - statefulset.yaml
   - svc.yaml
   - svc-lb.yaml
   - tls-route.yaml
-  - namespace.yaml
   - cert-omada.yaml
