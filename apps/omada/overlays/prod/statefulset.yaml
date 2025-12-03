@@ -118,7 +118,7 @@ spec:
             - name: SHOW_MONGODB_LOGS
               value: "false"
             - name: TZ
-              value: Etc/UTC
+              value: Europe/Madrid
             - name: SKIP_USERMOD
               value: "true"
           startupProbe:
