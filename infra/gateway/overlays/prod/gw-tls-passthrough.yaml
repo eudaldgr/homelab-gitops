@@ -11,7 +11,7 @@ spec:
   listeners:
     - protocol: TLS
       port: 443
-      name: proxmox
+      name: pve01
       hostname: "pve01.cornfakes.xyz"
       tls:
         mode: Passthrough
@@ -20,7 +20,7 @@ spec:
           from: All
     - protocol: TLS
       port: 443
-      name: proxmox
+      name: pve02
       hostname: "pve02.cornfakes.xyz"
       tls:
         mode: Passthrough
