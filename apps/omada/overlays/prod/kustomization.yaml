@@ -10,3 +10,6 @@ resources:
   - svc-lb.yaml
   - tls-route.yaml
   - cert-omada.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
