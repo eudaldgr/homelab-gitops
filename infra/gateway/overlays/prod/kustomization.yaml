@@ -2,8 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- ../../base
-- gw-external.yaml
-- gw-internal.yaml
-- cert-cornfakes.yaml
-- cert-canmugrons.yaml
+  - ../../base
+  - cert-canmugrons.yaml
+  - cert-cornfakes.yaml
+  - gw-external.yaml
+  - gw-internal.yaml
+  - gw-tls-passthrough.yaml
+  - http-redirect.yaml
