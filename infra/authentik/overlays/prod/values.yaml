@@ -1,0 +1,60 @@
+---
+global:
+  envFrom:
+    - secretRef:
+        name: authentik-core-secrets
+    - secretRef:
+        name: authentik-blueprint-secrets
+    #- secretRef:
+    #   name: authentik-smtp-credentials
+
+  volumeMounts:
+    - name: db-creds
+      mountPath: /secrets/authentik
+      readOnly: true
+
+  volumes:
+    - name: db-creds
+      secret:
+        secretName: authentik-user.authentik-postgresql.credentials.postgresql.acid.zalan.do
+
+authentik:
+  enabled: true
+  secret_key: "env://AUTHENTIK_SECRET_KEY"
+  error_reporting:
+    enabled: false
+  postgresql:
+    host: authentik-postgresql
+    name: authentik
+    user: file:///secrets/authentik/username
+    password: file:///secrets/authentik/password
+    port: "5432"
+
+blueprints:
+  configMaps:
+    - authentik-blueprints
+  secrets: []
+
+server:
+  enabled: true
+  service:
+    type: LoadBalancer
+
+worker:
+  enabled: true
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  metrics:
+    enabled: true
+
+prometheus:
+  rules:
+    enabled: true
+
+postgresql:
+  enabled: false
