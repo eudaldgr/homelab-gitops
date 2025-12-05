@@ -3,8 +3,8 @@ global:
   envFrom:
     - secretRef:
         name: authentik-core-secrets
-    - secretRef:
-        name: authentik-blueprint-secrets
+    #- secretRef:
+    #    name: authentik-blueprint-secrets
     #- secretRef:
     #   name: authentik-smtp-credentials
 
@@ -30,10 +30,10 @@ authentik:
     password: file:///secrets/authentik/password
     port: "5432"
 
-blueprints:
-  configMaps:
-    - authentik-blueprints
-  secrets: []
+#blueprints:
+#  configMaps:
+#    - authentik-blueprints
+#  secrets: []
 
 server:
   enabled: true
