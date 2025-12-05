@@ -1,36 +1,14 @@
-newtInstances:
-  - name: main-tunnel
-    enabled: true
-    auth:
-      existingSecretName: newt-credentials
-    acceptClients: true
-
-    # Declarative Blueprints (Infrastructure-as-Code)
-    # Define your services here to automatically register them in Pangolin.
-    # See: https://docs.pangolin.net/manage/blueprints
-    extraConfig:
-      proxy-resources:
-        # Example: Expose ArgoCD
-        argocd:
-          name: ArgoCD
-          protocol: http
-          full-domain: argocd.cornfakes.xyz
-          targets:
-            - hostname: argocd-server.argocd.svc.cluster.local
-              port: 80
-              method: http
-
-        # Example: Expose Longhorn
-        longhorn:
-          name: Longhorn
-          protocol: http
-          full-domain: longhorn.cornfakes.xyz
-          targets:
-            - hostname: longhorn-frontend.longhorn-system.svc.cluster.local
-              port: 80
-              method: http
-
 global:
   networkPolicy:
     create: true
     defaultDenyIngress: true
+
+metrics:
+  enabled: true
+  port: 2112
+
+newtInstances:
+  - name: main-tunnel
+    auth:
+      existingSecretName: newt-credentials
+    acceptClients: true
