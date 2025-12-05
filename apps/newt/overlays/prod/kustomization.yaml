@@ -9,10 +9,14 @@ resources:
   - blueprint.yaml
 
 patches:
-  - path: deployment-patch.yaml
-    target:
+  - target:
       kind: Deployment
       name: newt-newt-main-tunnel
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/args
+        value:
+          - --blueprint-file=/etc/pangolin/blueprint.yaml
 
 helmCharts:
   - name: newt
