@@ -8,6 +8,12 @@ resources:
   - sealed-secret.yaml
   - blueprint.yaml
 
+patches:
+  - path: deployment-patch.yaml
+    target:
+      kind: Deployment
+      name: newt-newt-main-tunnel
+
 helmCharts:
   - name: newt
     repo: https://charts.fossorial.io

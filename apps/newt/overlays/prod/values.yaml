@@ -21,5 +21,3 @@ newtInstances:
       - name: blueprint
         mountPath: /etc/pangolin
         readOnly: true
-    extraArgs:
-      - --blueprint-file=/etc/pangolin/blueprint.yaml
