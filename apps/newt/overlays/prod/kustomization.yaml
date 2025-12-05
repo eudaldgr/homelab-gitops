@@ -10,7 +10,8 @@ resources:
 configMapGenerator:
   - name: blueprints-raw
     files:
-      - blueprints/
+      - blueprints/argocd.yaml
+      - blueprints/longhorn.yaml
     options:
       disableNameSuffixHash: true
 
