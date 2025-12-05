@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pangolin-blueprint
+  namespace: newt
+data:
+  blueprint.yaml: |
+    proxy-resources:
+      argocd-web:
+        name: ArgoCD Web Interface
+        protocol: http
+        full-domain: argocd.cornfakes.xyz
+        ssl: true
+        enabled: true
+        targets:
+          - hostname: argocd-server.argocd.svc.cluster.local
+            port: 80
+            method: http
+            enabled: true
+            priority: 100
+            healthcheck:
+              hostname: argocd-server.argocd.svc.cluster.local
+              port: 80
+              enabled: true
+              path: /healthz
+              interval: 30
+              timeout: 5
+              method: GET
+              status: 200

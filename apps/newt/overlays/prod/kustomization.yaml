@@ -6,6 +6,7 @@ namespace: newt
 resources:
   - ../../base
   - sealed-secret.yaml
+  - blueprint.yaml
 
 helmCharts:
   - name: newt
