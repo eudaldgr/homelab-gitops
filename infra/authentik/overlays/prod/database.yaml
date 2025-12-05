@@ -2,7 +2,7 @@ apiVersion: "acid.zalan.do/v1"
 kind: postgresql
 metadata:
   name: authentik-postgresql
-  namespace: auth
+  namespace: authentik
 spec:
   teamId: "auth"
   volume:
