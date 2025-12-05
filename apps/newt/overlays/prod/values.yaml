@@ -13,11 +13,3 @@ newtInstances:
     auth:
       existingSecretName: newt-credentials
     acceptClients: true
-    extraVolumes:
-      - name: blueprint
-        configMap:
-          name: pangolin-blueprint
-    extraVolumeMounts:
-      - name: blueprint
-        mountPath: /etc/pangolin
-        readOnly: true

@@ -6,17 +6,57 @@ namespace: newt
 resources:
   - ../../base
   - sealed-secret.yaml
-  - blueprint.yaml
+
+configMapGenerator:
+  - name: blueprints-raw
+    files:
+      - blueprints/
+    options:
+      disableNameSuffixHash: true
 
 patches:
   - target:
       kind: Deployment
       name: newt-newt-main-tunnel
     patch: |-
+      # Init Container to merge blueprints
+      - op: add
+        path: /spec/template/spec/initContainers
+        value:
+          - name: blueprint-merger
+            image: docker.io/mikefarah/yq:4
+            command: ["/bin/sh", "-c"]
+            args:
+              - |
+                yq eval-all '. as $item ireduce ({}; . * $item)' /config/*.yaml > /data/blueprint.yaml
+            volumeMounts:
+              - name: blueprints-raw
+                mountPath: /config
+                readOnly: true
+              - name: blueprints-merged
+                mountPath: /data
+
+      # Main Container updates
       - op: add
         path: /spec/template/spec/containers/0/args
         value:
           - --blueprint-file=/etc/pangolin/blueprint.yaml
+      - op: add
+        path: /spec/template/spec/containers/0/volumeMounts
+        value:
+          - name: blueprints-merged
+            mountPath: /etc/pangolin
+            readOnly: true
+
+      # Volumes definitions
+      - op: add
+        path: /spec/template/spec/volumes
+        value:
+          - name: blueprints-raw
+            configMap:
+              name: blueprints-raw
+          - name: blueprints-merged
+            emptyDir: {}
 
 helmCharts:
   - name: newt

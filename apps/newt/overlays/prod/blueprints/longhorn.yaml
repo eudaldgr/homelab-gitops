@@ -1,0 +1,22 @@
+proxy-resources:
+  longhorn-web:
+    name: Longhorn Web Interface
+    protocol: http
+    full-domain: longhorn.cornfakes.xyz
+    ssl: true
+    enabled: true
+    targets:
+      - hostname: longhorn-frontend.longhorn-system.svc.cluster.local
+        port: 80
+        method: http
+        enabled: true
+        priority: 100
+        healthcheck:
+          hostname: longhorn-frontend.longhorn-system.svc.cluster.local
+          port: 80
+          enabled: true
+          path: /
+          interval: 30
+          timeout: 5
+          method: GET
+          status: 200
