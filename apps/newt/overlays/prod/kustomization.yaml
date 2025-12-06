@@ -11,6 +11,7 @@ configMapGenerator:
   - name: blueprints-raw
     files:
       - blueprints/argocd.yaml
+      - blueprints/authentik.yaml
       - blueprints/longhorn.yaml
     options:
       disableNameSuffixHash: true

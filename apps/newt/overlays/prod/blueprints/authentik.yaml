@@ -1,0 +1,22 @@
+proxy-resources:
+  authentik:
+    name: Authentik Web Interface
+    protocol: http
+    full-domain: sso.cornfakes.xyz
+    ssl: true
+    enabled: true
+    targets:
+      - hostname: authentik-server.authentik.svc.cluster.local
+        port: 80
+        method: http
+        enabled: true
+        priority: 100
+        healthcheck:
+          hostname: authentik-server.authentik.svc.cluster.local
+          port: 80
+          enabled: true
+          path: /healthz
+          interval: 10
+          timeout: 5
+          method: GET
+          status: 200
