@@ -15,7 +15,7 @@ proxy-resources:
           hostname: authentik-server.authentik.svc.cluster.local
           port: 80
           enabled: true
-          path: /healthz
+          path: /-/health/live/
           interval: 10
           timeout: 5
           method: GET
