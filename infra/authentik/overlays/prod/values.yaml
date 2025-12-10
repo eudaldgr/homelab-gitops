@@ -111,7 +111,7 @@ authentik:
     user: file:///secrets/authentik/username
     password: file:///secrets/authentik/password
     port: "5432"
-    sslmode: require
+    sslmode: disable
 
 #blueprints:
 #  # -- List of config maps to mount blueprints from.
