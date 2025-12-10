@@ -6,13 +6,13 @@ proxy-resources:
     ssl: true
     enabled: true
     targets:
-      - hostname: 10.1.20.115
+      - hostname: authentik.authentik.svc.cluster.local
         port: 80
         method: http
         enabled: true
         priority: 100
         healthcheck:
-          hostname: 10.1.20.115
+          hostname: authentik.authentik.svc.cluster.local
           port: 80
           enabled: true
           path: /-/health/live/

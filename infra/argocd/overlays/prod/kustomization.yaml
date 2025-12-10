@@ -4,16 +4,16 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-- ../../base
-- http-route.yaml
-- http-route-api.yaml
-- argocd-redis-network-policy.yaml
+  - ../../base
+  - http-route.yaml
+  - http-route-api.yaml
+  - argocd-redis-network-policy.yaml
 
 helmCharts:
-- name: argo-cd
-  repo: https://argoproj.github.io/argo-helm
-  version: 9.1.0
-  releaseName: argocd
-  namespace: argocd
-  includeCRDs: true
-  valuesFile: values.yaml
+  - name: argo-cd
+    repo: https://argoproj.github.io/argo-helm
+    version: 9.1.0
+    releaseName: argocd
+    namespace: argocd
+    includeCRDs: true
+    valuesFile: values.yaml
