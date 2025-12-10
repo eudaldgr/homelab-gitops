@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://goauthentik.io/blueprints/schema.json
+# yamllint disable-file
+# prettier-ignore-start
+# eslint-disable
+---
+version: 1
+metadata:
+  name: Users
+entries:
+  - id: user-admin
+    model: authentik_core.user
+    identifiers:
+      username: admin-user
+    attrs:
+      username: admin-user
+      name: Admin User
+      email: !Env ADMIN_EMAIL
+      password: !Env ADMIN_PASSWORD
+      groups:
+        # membership in every user group
+        - !Find [authentik_core.group, [name, "Pangolin Org - Homelab"]]
+        - !Find [authentik_core.group, [name, "Kubectl Users"]]

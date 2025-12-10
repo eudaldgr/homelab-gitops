@@ -8,3 +8,4 @@ configMapGenerator:
   - name: authentik-blueprints
     files:
       - ./blueprints/groups.yaml
+      - ./blueprints/users.yaml
