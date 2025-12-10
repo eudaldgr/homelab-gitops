@@ -8,16 +8,8 @@ resources:
 
 helmCharts:
   - name: longhorn
-    repo: https://charts.longhorn.io
-    version: 1.10.1
-    releaseName: longhorn
     namespace: longhorn-system
+    releaseName: longhorn
+    repo: https://charts.longhorn.io
     valuesFile: values.yaml
-
-patches:
-  - target:
-      kind: Service
-      name: longhorn-frontend
-    patch: |-
-      - op: remove
-        path: /spec/ports/0/nodePort
+    version: 1.10.1

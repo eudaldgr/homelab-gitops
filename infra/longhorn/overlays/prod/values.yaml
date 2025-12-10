@@ -1,3 +1,4 @@
+---
 global:
   tolerations:
     - key: "node-role.kubernetes.io/storage"
@@ -51,7 +52,7 @@ csi:
         cpu: 60m
         memory: 70Mi
 defaultBackupStore:
-  backupTarget: 'nfs://10.1.30.50:/volume2/k8s/homelab/prod/longhorn/backups'
+  backupTarget: "nfs://10.1.30.50:/volume2/k8s/homelab/prod/longhorn/backups"
   pollInterval: 180
 defaultSettings:
   allowCollectingLonghornUsageMetrics: false
@@ -61,7 +62,7 @@ defaultSettings:
   guaranteedReplicaManagerCPU: 0.2
   storageOverProvisioningPercentage: "200"
   storageMinimalAvailablePercentage: "10"
-  taintToleration: 'node-role.kubernetes.io/storage:NoSchedule'
+  taintToleration: "node-role.kubernetes.io/storage:NoSchedule"
   defaultDataPath: /var/lib/longhorn/
   autoDeletePodWhenVolumeDetachedUnexpectedly: true
   autoSalvage: true
@@ -77,7 +78,7 @@ persistence:
   reclaimPolicy: Retain
   defaultFsType: ext4
   snapshotMaxCount: 60
-  defaultDataLocality: disabled
+  defaultDataLocality: best-effort
 
 resources:
   requests:
@@ -107,15 +108,47 @@ longhornDriver:
 preUpgradeChecker:
   jobEnabled: false
 
+# Longhorn 1.10.1 CRD conversion configuration
+# Disables webhook-based conversion to avoid Kubernetes API validation errors
+crdConversion:
+  enabled: false
+
 longhornUI:
-  replicas: 3
+  replicas: 2
 
 metrics:
   serviceMonitor:
     enabled: true
     additionalLabels: {}
     annotations: {}
-    interval: '30s'
-    scrapeTimeout: '10s'
+    interval: "30s"
+    scrapeTimeout: "10s"
     relabelings: []
     metricRelabelings: []
+# ---
+# PodSecurityContext/PodSecurity Admission Compliance
+# The Longhorn Helm chart does not expose direct securityContext fields for DaemonSet/Jobs.
+# To enforce PodSecurity restricted baseline, use a Helm post-render patch or Kustomize overlay.
+# Example Kustomize patch (apply in overlays/longhorn):
+#
+# apiVersion: apps/v1
+# kind: DaemonSet
+# metadata:
+#   name: longhorn-manager
+#   namespace: longhorn-system
+# spec:
+#   template:
+#     spec:
+#       containers:
+#         - name: longhorn-manager
+#           securityContext:
+#             runAsNonRoot: true
+#             allowPrivilegeEscalation: false
+#             seccompProfile:
+#               type: RuntimeDefault
+#             capabilities:
+#               drop: ["ALL"]
+#
+# Repeat for any Job templates as needed.
+#
+# This is a best-practice deviation due to Helm chart limitations. Track for future chart updates.
