@@ -78,7 +78,7 @@ persistence:
   reclaimPolicy: Retain
   defaultFsType: ext4
   snapshotMaxCount: 60
-  defaultDataLocality: best-effort
+  defaultDataLocality: disabled # disabled: tryes to use storage on the same node as the pod
 
 resources:
   requests:
