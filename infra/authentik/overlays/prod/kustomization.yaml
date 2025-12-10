@@ -10,6 +10,9 @@ resources:
   - sealed-secrets.yaml
   - extra
 
+generatorOptions:
+  disableNameSuffixHash: true
+
 helmCharts:
   - name: authentik
     namespace: authentik
@@ -17,6 +20,3 @@ helmCharts:
     repo: https://charts.goauthentik.io
     valuesFile: values.yaml
     version: 2025.10.1
-
-generatorOptions:
-  disableNameSuffixHash: true
