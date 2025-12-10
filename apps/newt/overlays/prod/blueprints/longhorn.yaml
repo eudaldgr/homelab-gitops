@@ -1,6 +1,6 @@
 proxy-resources:
   longhorn-web:
-    name: Longhorn Web Interface
+    name: Longhorn
     protocol: http
     full-domain: longhorn.cornfakes.xyz
     ssl: true

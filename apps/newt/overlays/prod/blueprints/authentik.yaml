@@ -1,6 +1,6 @@
 proxy-resources:
   authentik:
-    name: Authentik Web Interface
+    name: Authentik
     protocol: http
     full-domain: sso.cornfakes.xyz
     ssl: true

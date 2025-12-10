@@ -1,6 +1,6 @@
 proxy-resources:
   argocd-web:
-    name: ArgoCD Web Interface
+    name: ArgoCD
     protocol: http
     full-domain: argocd.cornfakes.xyz
     ssl: true
