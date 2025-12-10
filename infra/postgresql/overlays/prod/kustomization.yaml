@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: postgres-operator
 
 resources:
-  - namespace.yaml
+  - ../../base
 
 helmCharts:
   - name: postgres-operator
