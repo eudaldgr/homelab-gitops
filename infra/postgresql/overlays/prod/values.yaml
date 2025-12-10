@@ -351,7 +351,7 @@ configAwsOrGcp:
   # wal_az_storage_account: ""
 
 # configure K8s cron job managed by the operator
-configLogicalBackup:
+configLogicalBackup: {}
   # Azure Storage Account specs to store backup results
   # logical_backup_azure_storage_account_name: ""
   # logical_backup_azure_storage_container: ""
