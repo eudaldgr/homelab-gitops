@@ -8,6 +8,7 @@ resources:
   - database.yaml
   - httproute.yaml
   - sealed-secrets.yaml
+  - extra
 
 helmCharts:
   - name: authentik

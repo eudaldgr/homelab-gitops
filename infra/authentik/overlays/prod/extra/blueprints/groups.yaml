@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://goauthentik.io/blueprints/schema.json
+# yamllint disable-file
+# prettier-ignore-start
+# eslint-disable
+---
+version: 1
+metadata:
+  name: Groups - Applications
+entries:
+  - id: pangolin-org-{homelab}
+    model: authentik_core.group
+    identifiers:
+      name: Pangolin Org - Homelab
+    attrs:
+      name: Pangolin Org - Homelab
+    parent: !Find [standard-users, [name, "Standard Users"]]
+  - id: standard-users
+    model: authentik_core.group
+    identifiers:
+      name: Standard Users
+    attrs:
+      name: Standard Users
+  - id: kubectl-users
+    model: authentik_core.group
+    identifiers:
+      name: Kubectl Users
+    attrs:
+      name: Kubectl Users
